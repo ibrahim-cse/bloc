@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_app_complete/blocs/workouts_cubit.dart';
+import 'package:flutter_bloc_app_complete/helpers.dart';
 import 'package:flutter_bloc_app_complete/models/workout.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,8 +25,9 @@ class HomePage extends StatelessWidget {
                             value: workout,
                             headerBuilder: (BuildContext context, bool isExpanded) => ListTile(
                               visualDensity: const VisualDensity(horizontal: 0, vertical: VisualDensity.maximumDensity),
-                              leading: const IconButton(onPressed: null, icon: Icon(Icons.edit)),
                               title: Text(workout.title!),
+                              leading: const IconButton(onPressed: null, icon: Icon(Icons.edit)),
+                              trailing: Text(formatTime(workout.getTotal(), true)),
                             ),
                             body: ListView.builder(
                               shrinkWrap: true,
@@ -33,8 +35,9 @@ class HomePage extends StatelessWidget {
                               itemCount: workout.exercises.length,
                               itemBuilder: (BuildContext context, int index) => ListTile(
                                 visualDensity: const VisualDensity(horizontal: 0, vertical: VisualDensity.maximumDensity),
-                                leading: const IconButton(onPressed: null, icon: Icon(Icons.edit)),
                                 title: Text(workout.exercises[index].title!),
+                                leading: Text(formatTime(workout.exercises[index].prelude!, true)),
+                                trailing: Text(formatTime(workout.exercises[index].duration!, true)),
                                 onTap: null,
                               ),
                             ),
