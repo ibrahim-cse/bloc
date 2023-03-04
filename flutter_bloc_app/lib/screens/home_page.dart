@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_app_complete/blocs/workout_cubit.dart';
 import 'package:flutter_bloc_app_complete/blocs/workouts_cubit.dart';
 import 'package:flutter_bloc_app_complete/helpers.dart';
 import 'package:flutter_bloc_app_complete/models/workout.dart';
@@ -26,7 +27,10 @@ class HomePage extends StatelessWidget {
                             headerBuilder: (BuildContext context, bool isExpanded) => ListTile(
                               visualDensity: const VisualDensity(horizontal: 0, vertical: VisualDensity.maximumDensity),
                               title: Text(workout.title!),
-                              leading: const IconButton(onPressed: null, icon: Icon(Icons.edit)),
+                              leading: IconButton(
+                                onPressed: BlocProvider.of<WorkoutCubit>(context).editWorkout(workout, workouts.indexOf(workout)),
+                                icon: const Icon(Icons.edit),
+                              ),
                               trailing: Text(formatTime(workout.getTotal(), true)),
                             ),
                             body: ListView.builder(
