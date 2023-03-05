@@ -28,7 +28,9 @@ class HomePage extends StatelessWidget {
                               visualDensity: const VisualDensity(horizontal: 0, vertical: VisualDensity.maximumDensity),
                               title: Text(workout.title!),
                               leading: IconButton(
-                                onPressed: BlocProvider.of<WorkoutCubit>(context).editWorkout(workout, workouts.indexOf(workout)),
+                                onPressed: () {
+                                  BlocProvider.of<WorkoutCubit>(context).editWorkout(workout, workouts.indexOf(workout));
+                                },
                                 icon: const Icon(Icons.edit),
                               ),
                               trailing: Text(formatTime(workout.getTotal(), true)),
