@@ -16,6 +16,24 @@ class EditWorkoutScreen extends StatelessWidget {
 
       /// TODO: Will add listView.builder here
       body: const Center(child: Text('Body')),
+      // body: ListView.builder(
+      //   shrinkWrap: true,
+      //   itemCount: workoutEditing.workout!.exercises!.length,
+      //   itemBuilder: (context, index){
+      //     Exercise exercise = workoutEditing.workout!.exercises![index];
+      //     if(workoutEditing.exIndex == index){
+      //       return EditExerciseScreen(workout: workoutEditing.workout, index: workoutEditing.index, exIndex: workoutEditing.exIndex);
+      //     } else {
+      //       return ListTile(
+      //         leading: Text(formatTime(exercise.prelude!, true)),
+      //         title: Text(exercise.title!),
+      //         trailing: Text(formatTime(exercise.duration!, true)),
+      //         onTap: ()=> BlocProvider.of<WorkoutCubit>(context)
+      //             .editExercise(index),
+      //       );
+      //     }
+      //   },
+      // )
     );
   }
 }
