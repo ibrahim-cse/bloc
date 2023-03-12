@@ -9,7 +9,7 @@ class WorkoutCubit extends Cubit<WorkoutState> {
     return emit(WorkoutEditing(workout, index));
   }
 
-  void goHome() {
+  goHome() {
     emit(const WorkoutInitial());
   }
 }
