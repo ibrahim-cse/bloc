@@ -18,7 +18,14 @@ class EditWorkoutScreen extends StatelessWidget {
                 onPressed: () => BlocProvider.of<WorkoutCubit>(context).goHome(),
               ),
             ),
-            body: const Center(child: Text('Body')),
+            body: ListView.builder(
+              itemCount: we.workout!.exercises.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Text('data'),
+                );
+              },
+            ),
           );
         },
       ),
@@ -26,14 +33,3 @@ class EditWorkoutScreen extends StatelessWidget {
     );
   }
 }
-
-// Scaffold(
-// appBar: AppBar(
-// leading: BackButton(
-// onPressed: () => BlocProvider.of<WorkoutCubit>(context).goHome(),
-// ),
-// ),
-//
-// /// TODO: Will add listView.builder here
-// body: const Center(child: Text('Body')),
-// );
