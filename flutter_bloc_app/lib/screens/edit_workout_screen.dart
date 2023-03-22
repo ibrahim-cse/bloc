@@ -21,8 +21,10 @@ class EditWorkoutScreen extends StatelessWidget {
             body: ListView.builder(
               itemCount: we.workout!.exercises.length,
               itemBuilder: (context, index) {
-                return const ListTile(
-                  leading: Text('Edit workout data need to be implemented here'),
+                return const Center(
+                  child: ListTile(
+                    leading: Text('Edit workout data need to be implemented here'),
+                  ),
                 );
               },
             ),
